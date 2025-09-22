@@ -8,6 +8,7 @@
 - ✅ 支持批量转换目录中的所有xlsx文件
 - ✅ 自动跳过第一行（中文注释）
 - ✅ 支持自定义输出路径
+- ✅ 本地配置文件支持
 - ✅ 命令行友好界面
 - ✅ 错误处理和进度显示
 
@@ -56,7 +57,16 @@ node index.js batch xlsx/
 node index.js batch xlsx/ -o output/
 ```
 
-**3. 查看帮助**
+**3. 配置管理**
+```bash
+# 查看当前配置
+node index.js config
+
+# 修改配置文件 config.json
+# 可以设置输出目录和是否跳过第一行
+```
+
+**4. 查看帮助**
 ```bash
 node index.js --help
 node index.js convert --help
@@ -82,12 +92,33 @@ node index.js batch --help
 ]
 ```
 
+## 配置文件
+
+项目根目录下的 `config.json` 文件用于配置转换参数：
+
+```json
+{
+  "outputDir": "json",
+  "skipFirstRow": true,
+  "description": "xlsx2json 配置文件",
+  "settings": {
+    "outputDir": "输出目录路径，相对于项目根目录",
+    "skipFirstRow": "是否跳过第一行（中文注释），true/false"
+  }
+}
+```
+
+### 配置说明：
+- `outputDir`: 输出目录路径，默认为 "json"
+- `skipFirstRow`: 是否跳过第一行（中文注释），默认为 true
+
 ## 注意事项
 
 - 默认跳过第一行作为中文注释
 - 空单元格会被转换为空字符串
 - 输出目录会自动创建
 - 支持中文文件名和路径
+- 可通过配置文件自定义输出目录
 
 ## 项目结构
 
@@ -95,12 +126,11 @@ node index.js batch --help
 xlsx2json/
 ├── package.json          # 项目配置
 ├── index.js             # 主程序
+├── config.json          # 配置文件
 ├── convert.bat          # Windows一键转换脚本
-├── convert.ps1          # PowerShell一键转换脚本
-├── convert_all.bat      # 详细版批处理脚本
 ├── README.md            # 说明文档
 ├── xlsx/                # 输入xlsx文件目录
-│   └── 建筑表.xlsx
+│   └── building.xlsx
 └── json/                # 输出JSON文件目录
-    └── 建筑表.json
+    └── building.json
 ```

@@ -2,6 +2,8 @@
   {
     "type": 1,
     "level": 1,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": "",
     "costPower": "",
     "returnCoin": "",
@@ -21,6 +23,8 @@
   {
     "type": 1,
     "level": 2,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 25,
     "costPower": "",
     "returnCoin": "",
@@ -40,6 +44,8 @@
   {
     "type": 1,
     "level": 3,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 50,
     "costPower": "",
     "returnCoin": "",
@@ -59,6 +65,8 @@
   {
     "type": 1,
     "level": 4,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 100,
     "costPower": "",
     "returnCoin": "",
@@ -78,6 +86,8 @@
   {
     "type": 1,
     "level": 5,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 200,
     "costPower": "",
     "returnCoin": "",
@@ -97,6 +107,8 @@
   {
     "type": 1,
     "level": 6,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 400,
     "costPower": "",
     "returnCoin": "",
@@ -116,6 +128,8 @@
   {
     "type": 1,
     "level": 7,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 800,
     "costPower": 16,
     "returnCoin": "",
@@ -135,6 +149,8 @@
   {
     "type": 1,
     "level": 8,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 1600,
     "costPower": 32,
     "returnCoin": "",
@@ -154,6 +170,8 @@
   {
     "type": 1,
     "level": 9,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 3200,
     "costPower": 64,
     "returnCoin": "",
@@ -173,6 +191,8 @@
   {
     "type": 1,
     "level": 10,
+    "spineRes": "bed.json",
+    "animationRes": "",
     "costCoin": 6400,
     "costPower": 128,
     "returnCoin": "",
@@ -192,6 +212,8 @@
   {
     "type": 2,
     "level": 1,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": "",
     "costPower": "",
     "returnCoin": "",
@@ -211,6 +233,8 @@
   {
     "type": 2,
     "level": 2,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 16,
     "costPower": "",
     "returnCoin": "",
@@ -230,6 +254,8 @@
   {
     "type": 2,
     "level": 3,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 32,
     "costPower": "",
     "returnCoin": "",
@@ -249,6 +275,8 @@
   {
     "type": 2,
     "level": 4,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 64,
     "costPower": "",
     "returnCoin": "",
@@ -268,6 +296,8 @@
   {
     "type": 2,
     "level": 5,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 128,
     "costPower": "",
     "returnCoin": "",
@@ -287,6 +317,8 @@
   {
     "type": 2,
     "level": 6,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 256,
     "costPower": "",
     "returnCoin": "",
@@ -306,6 +338,8 @@
   {
     "type": 2,
     "level": 7,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 512,
     "costPower": 16,
     "returnCoin": "",
@@ -325,6 +359,8 @@
   {
     "type": 2,
     "level": 8,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 1024,
     "costPower": 32,
     "returnCoin": "",
@@ -344,6 +380,8 @@
   {
     "type": 2,
     "level": 9,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 2048,
     "costPower": 64,
     "returnCoin": "",
@@ -363,6 +401,8 @@
   {
     "type": 2,
     "level": 10,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 4096,
     "costPower": 128,
     "returnCoin": "",
@@ -382,6 +422,8 @@
   {
     "type": 2,
     "level": 11,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 8192,
     "costPower": 256,
     "returnCoin": "",
@@ -401,6 +443,8 @@
   {
     "type": 2,
     "level": 12,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 16384,
     "costPower": 512,
     "returnCoin": "",
@@ -420,6 +464,8 @@
   {
     "type": 2,
     "level": 13,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 32768,
     "costPower": 1024,
     "returnCoin": "",
@@ -439,6 +485,8 @@
   {
     "type": 2,
     "level": 14,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 65536,
     "costPower": 2048,
     "returnCoin": "",
@@ -458,6 +506,8 @@
   {
     "type": 2,
     "level": 15,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 131072,
     "costPower": 4096,
     "returnCoin": "",
@@ -477,6 +527,8 @@
   {
     "type": 3,
     "level": 1,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 8,
     "costPower": "",
     "returnCoin": 4,
@@ -496,6 +548,8 @@
   {
     "type": 3,
     "level": 2,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 16,
     "costPower": "",
     "returnCoin": 8,
@@ -515,6 +569,8 @@
   {
     "type": 3,
     "level": 3,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 32,
     "costPower": "",
     "returnCoin": 16,
@@ -534,6 +590,8 @@
   {
     "type": 3,
     "level": 4,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 64,
     "costPower": "",
     "returnCoin": 32,
@@ -553,6 +611,8 @@
   {
     "type": 3,
     "level": 5,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 256,
     "costPower": "",
     "returnCoin": 128,
@@ -572,6 +632,8 @@
   {
     "type": 3,
     "level": 6,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 512,
     "costPower": "",
     "returnCoin": 256,
@@ -591,6 +653,8 @@
   {
     "type": 3,
     "level": 7,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 1024,
     "costPower": 32,
     "returnCoin": 512,
@@ -610,6 +674,8 @@
   {
     "type": 3,
     "level": 8,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 2048,
     "costPower": 64,
     "returnCoin": 1024,
@@ -629,6 +695,8 @@
   {
     "type": 3,
     "level": 9,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 4096,
     "costPower": 128,
     "returnCoin": 2048,
@@ -648,6 +716,8 @@
   {
     "type": 3,
     "level": 10,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 8092,
     "costPower": 256,
     "returnCoin": 4046,
@@ -667,6 +737,8 @@
   {
     "type": 3,
     "level": 11,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 16384,
     "costPower": 512,
     "returnCoin": 8192,
@@ -686,6 +758,8 @@
   {
     "type": 3,
     "level": 12,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 32768,
     "costPower": 1024,
     "returnCoin": 16384,
@@ -705,6 +779,8 @@
   {
     "type": 3,
     "level": 13,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 65536,
     "costPower": 2048,
     "returnCoin": 32768,
@@ -724,6 +800,8 @@
   {
     "type": 3,
     "level": 14,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 131072,
     "costPower": 4096,
     "returnCoin": 65536,
@@ -743,6 +821,8 @@
   {
     "type": 3,
     "level": 15,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 262144,
     "costPower": 8192,
     "returnCoin": 131072,
@@ -762,6 +842,8 @@
   {
     "type": 4,
     "level": 1,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 200,
     "costPower": "",
     "returnCoin": 100,
@@ -781,6 +863,8 @@
   {
     "type": 4,
     "level": 2,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 400,
     "costPower": "",
     "returnCoin": 200,
@@ -800,6 +884,8 @@
   {
     "type": 4,
     "level": 3,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 800,
     "costPower": "",
     "returnCoin": 400,
@@ -819,6 +905,8 @@
   {
     "type": 4,
     "level": 4,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 1600,
     "costPower": "",
     "returnCoin": 800,
@@ -838,6 +926,8 @@
   {
     "type": 4,
     "level": 5,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 3200,
     "costPower": "",
     "returnCoin": 1600,
@@ -857,6 +947,8 @@
   {
     "type": 4,
     "level": 6,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 6400,
     "costPower": "",
     "returnCoin": 3200,
@@ -876,6 +968,8 @@
   {
     "type": 4,
     "level": 7,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 12800,
     "costPower": "",
     "returnCoin": 6400,
@@ -895,6 +989,8 @@
   {
     "type": 4,
     "level": 8,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 25600,
     "costPower": "",
     "returnCoin": 12800,
@@ -914,6 +1010,8 @@
   {
     "type": 4,
     "level": 9,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 51200,
     "costPower": "",
     "returnCoin": 25600,
@@ -933,6 +1031,8 @@
   {
     "type": 4,
     "level": 10,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": 102400,
     "costPower": "",
     "returnCoin": 51200,
@@ -952,6 +1052,8 @@
   {
     "type": 5,
     "level": 1,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": "",
     "costPower": 128,
     "returnCoin": "",
@@ -971,6 +1073,8 @@
   {
     "type": 5,
     "level": 2,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": "",
     "costPower": 1024,
     "returnCoin": "",
@@ -990,6 +1094,8 @@
   {
     "type": 5,
     "level": 3,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": "",
     "costPower": 2048,
     "returnCoin": "",
@@ -1009,6 +1115,8 @@
   {
     "type": 5,
     "level": 4,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": "",
     "costPower": 4096,
     "returnCoin": "",
@@ -1028,6 +1136,8 @@
   {
     "type": 5,
     "level": 5,
+    "spineRes": "",
+    "animationRes": "",
     "costCoin": "",
     "costPower": 8192,
     "returnCoin": "",

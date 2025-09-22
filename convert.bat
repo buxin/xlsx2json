@@ -3,6 +3,11 @@ chcp 65001 >nul
 echo xlsx2json 一键转换工具
 echo.
 
+REM 显示当前配置
+echo 📋 当前配置:
+node index.js config
+echo.
+
 REM 检查Node.js
 node --version >nul 2>&1
 if %errorlevel% neq 0 (
