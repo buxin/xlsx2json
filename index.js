@@ -7,8 +7,10 @@ const { program } = require('commander');
 function loadConfig() {
     const configPath = path.join(__dirname, 'config.json');
     const defaultConfig = {
+        inputDir: 'xlsx',
         outputDir: 'json',
-        skipFirstRow: true
+        skipFirstRow: true,
+        outputMapping: {}
     };
 
     try {
@@ -26,6 +28,20 @@ function loadConfig() {
 
 // 全局配置
 const config = loadConfig();
+
+// 获取输出文件名
+function getOutputFileName(inputFileName) {
+    const fileName = path.basename(inputFileName);
+    
+    // 检查是否有映射配置
+    if (config.outputMapping && config.outputMapping[fileName]) {
+        return config.outputMapping[fileName];
+    }
+    
+    // 默认使用原文件名，扩展名改为.json
+    const nameWithoutExt = path.basename(inputFileName, path.extname(inputFileName));
+    return `${nameWithoutExt}.json`;
+}
 
 /**
  * 将xlsx文件转换为JSON
@@ -93,10 +109,15 @@ function convertXlsxToJson(inputPath, outputPath = null, skipFirstRow = null) {
         // 确定输出文件路径
         if (!outputPath) {
             const inputDir = path.dirname(inputPath);
-            const inputName = path.basename(inputPath, path.extname(inputPath));
+            // 使用文件名映射功能
+            const outputFileName = getOutputFileName(inputPath);
             // 使用配置文件中的输出目录
-            const parentDir = path.dirname(inputDir);
-            outputPath = path.join(parentDir, config.outputDir, `${inputName}.json`);
+            if (path.isAbsolute(config.outputDir)) {
+                outputPath = path.join(config.outputDir, outputFileName);
+            } else {
+                const parentDir = path.dirname(inputDir);
+                outputPath = path.join(parentDir, config.outputDir, outputFileName);
+            }
         }
 
         // 确保输出目录存在
@@ -126,34 +147,54 @@ function convertXlsxToJson(inputPath, outputPath = null, skipFirstRow = null) {
  * @param {string} inputDir - 输入目录路径
  * @param {string} outputDir - 输出目录路径
  */
-function convertDirectory(inputDir, outputDir = null) {
+function convertDirectory(inputDir = null, outputDir = null) {
     try {
+        // 使用配置文件中的输入目录
+        if (!inputDir) {
+            inputDir = config.inputDir;
+        }
+
         if (!fs.existsSync(inputDir)) {
             throw new Error(`输入目录不存在: ${inputDir}`);
         }
 
         // 使用配置文件中的输出目录
         if (!outputDir) {
-            const parentDir = path.dirname(inputDir);
-            outputDir = path.join(parentDir, config.outputDir);
+            // 如果配置的outputDir是绝对路径，直接使用
+            if (path.isAbsolute(config.outputDir)) {
+                outputDir = config.outputDir;
+            } else {
+                // 如果是相对路径，相对于输入目录的父目录
+                const parentDir = path.dirname(inputDir);
+                outputDir = path.join(parentDir, config.outputDir);
+            }
         }
 
         const files = fs.readdirSync(inputDir);
-        const xlsxFiles = files.filter(file => path.extname(file).toLowerCase() === '.xlsx');
+        const xlsxFiles = files.filter(file => {
+            const ext = path.extname(file).toLowerCase();
+            const fileName = path.basename(file);
+            // 过滤掉临时文件和隐藏文件
+            return ext === '.xlsx' && !fileName.startsWith('~$') && !fileName.startsWith('.');
+        });
 
         if (xlsxFiles.length === 0) {
             console.log('📁 目录中没有找到xlsx文件');
             return;
         }
 
+        console.log(`📁 输入目录: ${inputDir}`);
         console.log(`📁 找到 ${xlsxFiles.length} 个xlsx文件`);
         console.log(`📁 输出目录: ${outputDir}`);
 
         xlsxFiles.forEach((file, index) => {
             const inputPath = path.join(inputDir, file);
-            const outputPath = path.join(outputDir, path.basename(file, '.xlsx') + '.json');
+            // 使用文件名映射功能
+            const outputFileName = getOutputFileName(file);
+            const outputPath = path.join(outputDir, outputFileName);
             
             console.log(`\n[${index + 1}/${xlsxFiles.length}] 处理文件: ${file}`);
+            console.log(`📄 输出文件: ${outputFileName}`);
             convertXlsxToJson(inputPath, outputPath);
         });
 
@@ -181,7 +222,7 @@ program
     });
 
 program
-    .command('batch <inputDir>')
+    .command('batch [inputDir]')
     .description('批量转换目录中的所有xlsx文件')
     .option('-o, --output <dir>', '输出目录路径')
     .action((inputDir, options) => {
@@ -189,13 +230,29 @@ program
     });
 
 program
+    .command('auto')
+    .description('使用配置文件自动转换（推荐）')
+    .action(() => {
+        console.log('🚀 使用配置文件自动转换...');
+        convertDirectory();
+    });
+
+program
     .command('config')
     .description('显示当前配置信息')
     .action(() => {
         console.log('📋 当前配置信息:');
+        console.log(`📁 输入目录: ${config.inputDir}`);
         console.log(`📁 输出目录: ${config.outputDir}`);
         console.log(`⏭️  跳过第一行: ${config.skipFirstRow ? '是' : '否'}`);
         console.log(`📄 配置文件: ${path.join(__dirname, 'config.json')}`);
+        
+        if (config.outputMapping && Object.keys(config.outputMapping).length > 0) {
+            console.log('\n📝 文件名映射:');
+            Object.entries(config.outputMapping).forEach(([input, output]) => {
+                console.log(`  ${input} → ${output}`);
+            });
+        }
     });
 
 // 如果没有参数，显示帮助信息

@@ -9,6 +9,8 @@
 - ✅ 自动跳过第一行（中文注释）
 - ✅ 支持自定义输出路径
 - ✅ 本地配置文件支持
+- ✅ 输入目录配置
+- ✅ 输出文件名映射
 - ✅ 命令行友好界面
 - ✅ 错误处理和进度显示
 
@@ -50,7 +52,10 @@ node index.js convert xlsx/建筑表.xlsx --no-skip-header
 
 **2. 批量转换**
 ```bash
-# 转换目录中所有xlsx文件
+# 使用配置文件自动转换（推荐）
+node index.js auto
+
+# 转换指定目录中所有xlsx文件
 node index.js batch xlsx/
 
 # 指定输出目录
@@ -98,19 +103,29 @@ node index.js batch --help
 
 ```json
 {
+  "inputDir": "xlsx",
   "outputDir": "json",
   "skipFirstRow": true,
+  "outputMapping": {
+    "建筑表.xlsx": "building.json",
+    "用户表.xlsx": "user.json",
+    "商品表.xlsx": "product.json"
+  },
   "description": "xlsx2json 配置文件",
   "settings": {
+    "inputDir": "输入目录路径，相对于项目根目录",
     "outputDir": "输出目录路径，相对于项目根目录",
-    "skipFirstRow": "是否跳过第一行（中文注释），true/false"
+    "skipFirstRow": "是否跳过第一行（中文注释），true/false",
+    "outputMapping": "输出文件名映射，键为xlsx文件名，值为json文件名"
   }
 }
 ```
 
 ### 配置说明：
+- `inputDir`: 输入目录路径，默认为 "xlsx"
 - `outputDir`: 输出目录路径，默认为 "json"
 - `skipFirstRow`: 是否跳过第一行（中文注释），默认为 true
+- `outputMapping`: 输出文件名映射，可以自定义xlsx文件对应的json文件名
 
 ## 注意事项
 
@@ -118,7 +133,8 @@ node index.js batch --help
 - 空单元格会被转换为空字符串
 - 输出目录会自动创建
 - 支持中文文件名和路径
-- 可通过配置文件自定义输出目录
+- 可通过配置文件自定义输入/输出目录
+- 支持文件名映射，如：建筑表.xlsx → building.json
 
 ## 项目结构
 

@@ -1,9 +1,17 @@
 {
-  "outputDir": "D:/workspace/ghost-dorm/assets/resources/json",
+  "inputDir": "D:\\workspace\\ghost-config",
+  "outputDir": "D:\\workspace\\ghost-dorm\\assets\\resources\\json",
   "skipFirstRow": true,
+  "outputMapping": {
+    "建筑表.xlsx": "building.json",
+    "建筑列表.xlsx": "store.json",
+    "怪物属性.xlsx": "monster.json"
+  },
   "description": "xlsx2json 配置文件",
   "settings": {
+    "inputDir": "输入目录路径，相对于项目根目录",
     "outputDir": "输出目录路径，相对于项目根目录",
-    "skipFirstRow": "是否跳过第一行（中文注释），true/false"
+    "skipFirstRow": "是否跳过第一行（中文注释），true/false",
+    "outputMapping": "输出文件名映射，键为xlsx文件名，值为json文件名"
   }
 }
