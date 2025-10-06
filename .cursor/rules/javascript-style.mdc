@@ -1,0 +1,48 @@
+---
+globs: *.js
+description: JavaScript 代码规范和最佳实践
+---
+
+# JavaScript 代码规范
+
+## 代码风格
+
+- 使用 2 个空格缩进
+- 使用单引号包围字符串
+- 函数和变量使用 camelCase 命名
+- 常量使用 UPPER_CASE 命名
+- 总是使用分号结尾
+
+## 错误处理
+
+- 使用 try-catch 包装可能出错的操作
+- 提供有意义的错误信息
+- 使用 console.error 输出错误
+- 使用 console.log 输出成功信息
+
+## 函数设计
+
+- 函数应该单一职责
+- 使用 JSDoc 注释说明函数用途和参数
+- 提供默认参数值
+- 返回有意义的值或抛出错误
+
+## 示例
+
+```javascript
+/**
+ * 将xlsx文件转换为JSON
+ * @param {string} inputPath - 输入xlsx文件路径
+ * @param {string} outputPath - 输出JSON文件路径（可选）
+ * @param {boolean} skipFirstRow - 是否跳过第一行（中文注释）
+ */
+function convertXlsxToJson(inputPath, outputPath = null, skipFirstRow = null) {
+    try {
+        // 实现逻辑
+        return result;
+    } catch (error) {
+        console.error('❌ 转换失败:', error.message);
+        throw error;
+    }
+}
+```

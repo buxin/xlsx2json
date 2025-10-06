@@ -1,0 +1,53 @@
+---
+description: Excel 到 JSON 转换的核心业务逻辑
+---
+
+# Excel 转换业务逻辑
+
+## 核心转换流程
+
+### 1. 文件读取
+- 使用 `XLSX.readFile()` 读取 Excel 文件
+- 默认使用第一个工作表：`workbook.SheetNames[0]`
+- 转换为数组格式：`header: 1`
+
+### 2. 数据处理
+- **跳过第一行**：如果 `skipFirstRow` 为 true，第一行作为中文注释
+- **字段名处理**：第二行作为字段名（跳过第一行时）或第一行作为字段名
+- **数据行**：从第三行开始（跳过第一行时）或第二行开始
+
+### 3. 对象转换
+```javascript
+const jsonObjects = dataRows.map(row => {
+    const obj = {};
+    headers.forEach((header, index) => {
+        obj[header] = row[index] || '';
+    });
+    return obj;
+});
+```
+
+### 4. 文件输出
+- 使用 `JSON.stringify(result, null, 2)` 格式化输出
+- 自动创建输出目录：`fs.mkdirSync(outputDir, { recursive: true })`
+- 支持文件名映射功能
+
+## 配置优先级
+
+1. 命令行参数（最高优先级）
+2. 配置文件设置
+3. 默认值（最低优先级）
+
+## 错误处理
+
+- 文件不存在检查
+- 目录权限检查
+- JSON 解析错误处理
+- 依赖库错误处理
+
+## 批量处理
+
+- 过滤临时文件：`!fileName.startsWith('~$')`
+- 过滤隐藏文件：`!fileName.startsWith('.')`
+- 只处理 `.xlsx` 扩展名文件
+- 提供处理进度显示

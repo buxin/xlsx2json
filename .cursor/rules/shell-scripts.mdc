@@ -1,0 +1,51 @@
+---
+globs: *.sh
+description: Shell 脚本编写规范和 macOS 集成
+---
+
+# Shell 脚本规范
+
+## macOS 集成脚本
+
+### 权限设置
+- 所有脚本文件必须设置执行权限：`chmod +x script.sh`
+- 使用 shebang：`#!/bin/bash`
+
+### 路径处理
+- 使用绝对路径避免路径问题
+- 获取脚本目录：`SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"`
+- 检查文件存在：`if [ ! -f "$file" ]; then ... fi`
+
+### 错误处理
+- 检查命令执行结果：`if [ $? -ne 0 ]; then ... fi`
+- 提供用户友好的错误信息
+- 使用 `exit 1` 表示错误退出
+
+### Node.js 集成
+- 检查 Node.js 安装：`command -v node &> /dev/null`
+- 获取 Node.js 路径：`NODE_PATH=$(which node)`
+- 使用完整路径执行：`"$NODE_PATH" script.js`
+
+### 用户交互
+- 使用 `osascript` 显示 macOS 原生对话框
+- 使用 `read -n 1` 等待用户按键
+- 提供清晰的使用说明
+
+## 示例
+
+```bash
+#!/bin/bash
+
+# 获取脚本目录
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# 检查 Node.js
+if ! command -v node &> /dev/null; then
+    echo "❌ 未找到 Node.js"
+    exit 1
+fi
+
+# 执行操作
+cd "$SCRIPT_DIR"
+node index.js "$@"
+```

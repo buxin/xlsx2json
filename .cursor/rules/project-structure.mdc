@@ -1,0 +1,41 @@
+---
+alwaysApply: true
+description: xlsx2json 项目结构和核心功能
+---
+
+# xlsx2json 项目结构指南
+
+这是一个将 Excel 文件转换为 JSON 格式的 Node.js 工具，专门为 macOS 系统优化。
+
+## 核心文件
+
+- **主程序入口**: [index.js](mdc:index.js) - 包含所有转换逻辑和命令行接口
+- **配置文件**: [config.json](mdc:config.json) - 存储输入输出目录、文件名映射等设置
+- **可执行程序**: [bin/xlsx2json](mdc:bin/xlsx2json) - macOS 可执行脚本入口
+- **包配置**: [package.json](mdc:package.json) - 包含 bin 字段，支持全局安装
+
+## 主要功能
+
+1. **单文件转换**: `convertXlsxToJson()` 函数处理单个 Excel 文件
+2. **批量转换**: `convertDirectory()` 函数处理整个目录
+3. **配置管理**: `loadConfig()` 函数读取配置文件
+4. **文件名映射**: 支持自定义输出文件名映射
+
+## 命令行接口
+
+使用 commander.js 提供以下命令：
+- `convert <input>` - 转换单个文件
+- `batch [inputDir]` - 批量转换目录
+- `auto` - 使用配置文件自动转换
+- `config` - 显示当前配置
+
+## macOS 集成
+
+- **启动脚本**: [start.command](mdc:start.command) - 双击运行
+- **安装脚本**: [install.sh](mdc:install.sh) - 自动安装和配置
+- **应用创建**: [create-app.sh](mdc:create-app.sh) - 创建 .app 应用程序包
+
+## 依赖项
+
+- `xlsx`: Excel 文件处理库
+- `commander`: 命令行参数解析

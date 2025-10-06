@@ -1,0 +1,41 @@
+---
+globs: *.json
+description: JSON 配置文件格式和结构
+---
+
+# JSON 配置文件规范
+
+## config.json 结构
+
+配置文件 [config.json](mdc:config.json) 包含以下字段：
+
+- `inputDir`: 输入目录路径（支持绝对路径和相对路径）
+- `outputDir`: 输出目录路径（支持绝对路径和相对路径）
+- `skipFirstRow`: 布尔值，是否跳过第一行作为中文注释
+- `outputMapping`: 对象，文件名映射关系
+- `description`: 字符串，配置文件描述
+- `settings`: 对象，字段说明文档
+
+## 路径处理
+
+- 绝对路径：直接使用，如 `/Users/username/Documents/input`
+- 相对路径：相对于项目根目录，如 `xlsx` 或 `json`
+
+## 文件名映射
+
+```json
+{
+  "outputMapping": {
+    "建筑表.xlsx": "building.json",
+    "建筑列表.xlsx": "store.json",
+    "怪物属性.xlsx": "monster.json"
+  }
+}
+```
+
+## 验证规则
+
+- 所有路径字段必须是字符串
+- `skipFirstRow` 必须是布尔值
+- `outputMapping` 必须是对象
+- 键值对中的值必须是字符串
