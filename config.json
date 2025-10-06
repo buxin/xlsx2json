@@ -1,6 +1,6 @@
 {
-  "inputDir": "D:\\workspace\\ghost-config",
-  "outputDir": "D:\\workspace\\ghost-dorm\\assets\\resources\\json",
+  "inputDir": "/Users/dz0400806/Documents/ghost-config",
+  "outputDir": "/Users/dz0400806/Documents/ghost-dorm/assets/resources/json",
   "skipFirstRow": true,
   "outputMapping": {
     "建筑表.xlsx": "building.json",

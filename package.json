@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "A tool to convert xlsx files to JSON format",
   "main": "index.js",
+  "bin": {
+    "xlsx2json": "./bin/xlsx2json"
+  },
   "scripts": {
     "start": "node index.js",
-    "convert": "node index.js"
+    "convert": "node index.js",
+    "build": "chmod +x bin/xlsx2json"
   },
   "keywords": ["xlsx", "json", "converter", "excel"],
   "author": "",

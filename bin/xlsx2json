@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+/**
+ * xlsx2json - Excel转JSON工具的可执行入口
+ * macOS 可执行程序
+ */
+
+const path = require('path');
+const fs = require('fs');
+
+// 获取主程序路径
+const mainScript = path.join(__dirname, '..', 'index.js');
+
+// 检查主程序是否存在
+if (!fs.existsSync(mainScript)) {
+    console.error('❌ 错误: 找不到主程序文件 index.js');
+    process.exit(1);
+}
+
+// 执行主程序
+require(mainScript);
